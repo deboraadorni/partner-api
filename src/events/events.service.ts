@@ -64,7 +64,7 @@ export class EventsService {
     
         await prisma.spot.updateMany({  
           where: { id: { in: spots.map(spot => spot.id) } },
-          data: { status: SpotStatus.RESERVED }
+          data: { status: SpotStatus.OCCUPIED }
         });
     
         const tickets = await Promise.all(spots.map(async spot => 
